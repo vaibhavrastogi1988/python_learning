@@ -90,33 +90,15 @@ class Flight(object):
                     yield (passenger, "{}{}".format(row, letter))
 
 class Aircraft:
-    def __init__(self, registration, model, num_rows, num_seats_per_row):
+    def __init__(self, registration):
         self._registration = registration
-        self._model = model
-        self._num_rows = num_rows
-        self._num_seats_per_row = num_seats_per_row
 
     def registration(self):
         return self._registration
-
-    def model(self):
-        return self._model
-
-    def seating_plan(self):
-        return (range(1, self._num_rows + 1),
-                "ABCDEFGHIJK"[:self._num_seats_per_row])
-
-class Aircraft:
-    def __init__(self, registration):
-        self._registration = registration
 
     def num_seats(self):
         rows, row_seats = self.seating_plan()
         return len(rows) * len(row_seats)
-
-    def registration(self):
-        return self._registration
-
 
 class AirbusA319(Aircraft):
     def model(self):
@@ -177,7 +159,6 @@ def main():
 
     # f = Flight("12345")
     # f = Flight("as345")
-    # f = Flight
 
 
 if __name__ == '__main__':
